@@ -7,7 +7,7 @@
     vtype: "{{ item['vtype'] }}"
   become: true
   changed_when: false
-  no_log: true
+  no_log: false
   loop:
     - question: slapd/internal/generated_adminpw
       value: "{{ openldap_admin_password }}"
