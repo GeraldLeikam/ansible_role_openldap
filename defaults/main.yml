@@ -30,15 +30,4 @@ openldap_posixgroups:
     ou: Groups
     gidNum: 5000
 
-openldap_users:
-  - FirstName: John
-    LastName: Smith
-    # Defines OU name
-    ou: People
-    # Start user numbers at 10000 and up
-    uidNum: 10000
-    # Defines gidNum from openldap_posixgroups
-    gidNum: 5000
-    password: P@55w0rd
-    loginShell: /bin/bash
-    homeDirectory: /home/john
+openldap_users: []
