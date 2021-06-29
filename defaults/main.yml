@@ -2,10 +2,15 @@ openldap_admin_password: P@55w0rd
 openldap_admin_user: admin
 openldap_db_engine: MDB
 openldap_domain_name: "{{ openldap_org + '.' + openldap_tld }}"
+openldap_bind_user: "{{ openldap_admin_user }}"
+openldap_base: "{{ 'dc=' + openldap_org + ',dc=' + openldap_tld }}"
+openldap_bind_id: "{{ 'cn=' + openldap_bind_user + ',' + openldap_base }}"
 openldap_org: example
 openldap_tld: org
 openldap_debian_packages:
   - slapd
   - ldap-utils
-  - php-xml
-  - phpldapadmin
+
+openldap_ldif_tmp_dir: /tmp/ldifs
+
+
