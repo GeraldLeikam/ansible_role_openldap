@@ -13,4 +13,10 @@ openldap_debian_packages:
 
 openldap_ldif_tmp_dir: /tmp/ldifs
 
+openldap_schemas:
+  - core
+  - cosine
+  - inetorgperson
+  - nis
+
 
