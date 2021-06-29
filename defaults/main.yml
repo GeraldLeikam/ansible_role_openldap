@@ -25,3 +25,7 @@ openldap_organizationalunits:
   - People
   - Groups
 
+openldap_posixgroups:
+  - name: miners
+    ou: Groups
+    gidNum: 5000
