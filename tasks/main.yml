@@ -94,15 +94,15 @@
   file:
     path: '{{ openldap_ldif_tmp_dir }}'
     state: absent
-  become: true
 
-#- name: config_openldap | creating database population config
-#  template:
-#    src: etc/ldap/slapd.d/populate_content.ldif.j2
-#    dest: /etc/ldap/slapd.d/populate_content.ldif
-#    owner: root
-#    group: root
-#    mode: 0640
+
+- name: config_openldap | creating database population config
+  template:
+    src: populate_content.ldif.j2
+    dest: /etc/ldap/slapd.d/populate_content.ldif
+    owner: root
+    group: root
+    mode: 0640
 
 #- name: config_openldap | setting admin password
 #  shell: slappasswd -s {{ openldap_admin_password }}
