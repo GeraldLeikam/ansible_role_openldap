@@ -78,11 +78,11 @@
 - name: config_openldap_schemas | covertyng *.schema to *.ldif
   command: slaptest -f {{ openldap_ldif_tmp_dir }}/schema_conversion.conf -F {{ openldap_ldif_tmp_dir }}
 
-#- name: config_openldap_schemas | adding new schemas
-#  include_tasks: "config_openldap_schemas_ldifs.yml"
-#  with_items: "{{ openldap_schemas }}"
-#  loop_control:
-#    loop_var: schema
+- name: config_openldap_schemas | adding new schemas
+  include_tasks: "config_openldap_schemas_ldifs.yml"
+  with_items: "{{ openldap_schemas }}"
+  loop_control:
+    loop_var: schema
 
 #- name: config_openldap | managing overlays
 #  include_tasks: config_openldap_overlays.yml
