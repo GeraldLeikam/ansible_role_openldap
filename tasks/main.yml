@@ -84,11 +84,11 @@
   loop_control:
     loop_var: schema
 
-#- name: config_openldap | managing overlays
-#  include_tasks: config_openldap_overlays.yml
-#  with_items: "{{ openldap_overlays_and_acls }}"
-#  loop_control:
-#    loop_var: overlay
+- name: config_openldap | managing overlays
+  include_tasks: config_openldap_overlays.yml
+  with_items: "{{ openldap_overlays_and_acls }}"
+  loop_control:
+    loop_var: overlay
 
 - name: config_openldap | deleting temp folder
   file:
