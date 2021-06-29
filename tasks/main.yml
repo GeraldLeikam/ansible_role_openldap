@@ -66,11 +66,10 @@
     mode: '0640'
   with_fileglob:
     - 'files/openldap/schema/*.schema'
-  become: true
 
 - name: config_openldap_schemas | creating a conversion file
   template:
-    src: etc/ldap/slapd.d/schema_conversion.conf.j2
+    src: schema_conversion.conf.j2
     dest: '{{ openldap_ldif_tmp_dir }}/schema_conversion.conf'
     owner: root
     group: root
