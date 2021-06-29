@@ -104,22 +104,21 @@
     group: root
     mode: 0640
 
-#- name: config_openldap | setting admin password
-#  shell: slappasswd -s {{ openldap_admin_password }}
-#  register: _openldap_admin_password
+- name: config_openldap | setting admin password
+  shell: slappasswd -s {{ openldap_admin_password }}
+  register: _openldap_admin_password
 
-#- name: config_openldap | restart slapd
-#  service:
-#    name: slapd
-#    enabled: true
-#    state: restarted
-#  when:
-#    - _openldap_admin_password is defined
+- name: config_openldap | restart slapd
+  service:
+    name: slapd
+    enabled: true
+    state: restarted
+  when:
+    - _openldap_admin_password is defined
 
-
-#- name: config_openldap | populating openLDAP
-#  shell: "ldapadd -x -D {{ openldap_bind_id }} -w {{ openldap_admin_password }} -f /etc/ldap/slapd.d/populate_content.ldif"
-#  ignore_errors: true
-#  when:
-#    - openldap_populate is defined
-#    - openldap_populate|bool
+- name: config_openldap | populating openLDAP
+  shell: "ldapadd -x -D {{ openldap_bind_id }} -w {{ openldap_admin_password }} -f /etc/ldap/slapd.d/populate_content.ldif"
+  ignore_errors: true
+  when:
+    - openldap_populate is defined
+    - openldap_populate|bool

@@ -21,3 +21,7 @@ openldap_schemas:
 
 openldap_overlays_and_acls: []
 
+openldap_organizationalunits:
+  - People
+  - Groups
+
