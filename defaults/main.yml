@@ -19,4 +19,5 @@ openldap_schemas:
   - inetorgperson
   - nis
 
+openldap_overlays_and_acls: []
 
